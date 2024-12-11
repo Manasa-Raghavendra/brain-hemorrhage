@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: brain-hemorrhage-detection
+    env: python
+    region: oregon  # Choose the closest region to your target audience
+    plan: free  # Use "starter" or other plans for paid tiers
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: SECRET_KEY
+        value: brain_hemorrhage_detection
+    staticPublishPath: static/uploads
+    autoDeploy: true
